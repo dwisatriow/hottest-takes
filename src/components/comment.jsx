@@ -1,11 +1,12 @@
 import User from './user';
 import { useActions } from '../hooks';
+import { memo } from 'react';
 
 const PostComment = ({ comment, postId }) => {
   const { removeComment } = useActions();
 
   return (
-    <article className="flex flex-col gap-2 p-2 pl-4 border-2 border-l-8 rounded-sm shadow-md border-primary-700">
+    <article className="flex flex-col gap-2 rounded-sm border-2 border-l-8 border-primary-700 p-2 pl-4 shadow-md">
       <User user={comment.user} />
       <p>{comment.text}</p>
       <div className="flex place-content-end">
@@ -17,4 +18,4 @@ const PostComment = ({ comment, postId }) => {
   );
 };
 
-export default PostComment;
+export default memo(PostComment);
